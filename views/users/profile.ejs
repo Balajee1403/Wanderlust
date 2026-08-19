@@ -1,0 +1,167 @@
+<% layout("/layouts/boilerplate") %>
+
+    <style>
+        .profile-container {
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 30px;
+        }
+
+        .profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #ff385c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .profile-name {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-email {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .profile-info {
+            display: flex;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-number {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .info-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .profile-actions {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .profile-btn {
+            padding: 10px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .edit-btn {
+            background: #ff385c;
+            color: white;
+        }
+
+        .wishlist-btn {
+            border: 1px solid #ddd;
+            color: #222;
+            background: white;
+        }
+
+        .profile-btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+
+
+    <div class="container profile-container">
+
+        <div class="profile-card">
+
+            <!-- Profile Header -->
+            <div class="profile-header">
+
+                <div class="profile-avatar">
+                    <%= user.username.charAt(0).toUpperCase() %>
+                </div>
+
+                <div>
+                    <div class="profile-name">
+                        <%= user.username %>
+                    </div>
+
+                    <div class="profile-email">
+                        <%= user.email %>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Profile Information -->
+            <div class="profile-info">
+
+                <div class="info-box">
+
+                    <div class="info-number">
+                        <%= user.wishlist.length %>
+                    </div>
+
+                    <div class="info-label">
+                        Wishlist
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <div class="info-number">
+                        <%= user.wishlist.length %>
+                    </div>
+
+                    <div class="info-label">
+                        Saved Listings
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="profile-actions">
+
+                <a href="/profile/edit" class="profile-btn edit-btn">
+                    ✏️ Edit Profile
+                </a>
+
+                <a href="/wishlist" class="btn btn-outline-danger text-nowrap px-3">
+                    View Wishlist
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>

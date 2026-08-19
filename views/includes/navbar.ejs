@@ -26,6 +26,8 @@
             Logout
           </a>
 
+
+
           <% } else { %>
 
             <a class="nav-link" href="/login">
@@ -41,14 +43,25 @@
 
 
 
-      <form class="d-flex ms-auto" method="GET" action="/listings">
-        <input class="form-control me-2" type="text" name="search" placeholder="Search listings...">
+      <div class="ms-auto d-flex align-items-center">
 
-        <button class="btn btn-dark" type="submit">
-          Search
-        </button>
-      </form>
+        <form class="d-flex" role="search" action="/listings" method="GET">
+          <input class="form-control me-2" type="search" name="search" placeholder="Search listings...">
 
+          <button class="btn btn-outline-dark" type="submit">
+            Search
+          </button>
+        </form>
+
+        <% if (currentUser) { %>
+
+          <a class="nav-link ms-4" href="/profile">
+            👤
+          </a>
+
+          <% } %>
+
+      </div>
     </div>
   </div>
 </nav>

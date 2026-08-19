@@ -126,6 +126,7 @@ app.post("/login", wrapAsync(async (req, res) => {
     res.redirect("/listings");
 }));
 
+//logout
 app.get("/logout", (req, res) => {
 
     req.session.destroy((err) => {
@@ -138,7 +139,56 @@ app.get("/logout", (req, res) => {
     });
 });
 
-//index route
+// Profile page
+app.get("/profile", wrapAsync(async (req, res) => {
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    const user = await User.findById(req.session.userId)
+        .populate("wishlist");
+
+    res.render("users/profile.ejs", { user });
+}));
+
+// Edit Profile page
+app.get("/profile/edit", wrapAsync(async (req, res) => {
+
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    const user = await User.findById(req.session.userId);
+
+    res.render("users/edit-profile.ejs", { user });
+}));
+
+// Update Profile
+app.post("/profile/edit", wrapAsync(async (req, res) => {
+
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    const { username, email } = req.body;
+
+    await User.findByIdAndUpdate(
+        req.session.userId,
+        {
+            username: username,
+            email: email
+        }
+    );
+
+    res.redirect("/profile");
+}));
+
+//new route
+app.get("/listings/new", (req, res) => {
+    res.render("listings/new.ejs");
+});
+
+//index route : All listings
 app.get("/listings", wrapAsync(async (req, res) => {
     let { search } = req.query;
 
@@ -177,11 +227,6 @@ app.get("/listings", wrapAsync(async (req, res) => {
     currentUser: res.locals.currentUser
     });
 }));
-
-//new route
-app.get("/listings/new", (req, res) => {
-    res.render("listings/new.ejs");
-});
 
 // Add / Remove Wishlist
 app.post("/listings/:id/wishlist", requireLogin, wrapAsync(async (req, res) => {

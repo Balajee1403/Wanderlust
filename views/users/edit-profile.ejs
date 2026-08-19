@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5" style="max-width: 600px;">
+
+    <div class="card p-4">
+
+        <h2 class="mb-4">Edit Profile</h2>
+
+        <form action="/profile/edit" method="POST">
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    value="<%= user.username %>"
+                    required
+                >
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    value="<%= user.email %>"
+                    required
+                >
+            </div>
+
+
+            <button class="btn btn-danger">
+                Save Changes
+            </button>
+
+            <a href="/profile" class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
