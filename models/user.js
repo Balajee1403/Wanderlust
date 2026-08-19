@@ -17,6 +17,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    wishlist: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Listing"
+        }
+    ]
 });
 
 const User = mongoose.model("User", userSchema);

@@ -1,48 +1,69 @@
 <% layout("/layouts/boilerplate") %>
 
-<body>
-    <h3>All Listings</h3>
+    <body>
+        <h3>All Listings</h3>
 
-    <% if (allListings.length === 0) { %>
+        <% if (allListings.length===0) { %>
 
-        <div class="text-center mt-5">
-            <h4>No listings found</h4>
-            <p>Try searching for another location, country, or listing name.</p>
-        </div>
+            <div class="text-center mt-5">
+                <h4>No listings found</h4>
+                <p>Try searching for another location, country, or listing name.</p>
+            </div>
 
-    <% } else { %>
+            <% } else { %>
 
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 
-            <% for (let listings of allListings) { %>
+                    <% for (let listing of allListings) { %>
 
-                <a href="/listings/<%= listings._id %>" class="listing-link">
+                        <div class="col mb-4">
 
-                    <div class="card col">
-                        <img 
-                            src="<%= listings.image.url %>" 
-                            class="card-img-top" 
-                            alt="listings_image" 
-                            style="height: 20rem"
-                        />
+                            <!-- Card link -->
+                            <a href="/listings/<%= listing._id %>" class="listing-link">
 
-                        <div class="card-img-overlay"></div>
+                                <div class="card">
 
-                        <div class="card-body">
-                            <p class="card-text">
-                                <b><%= listings.title %></b><br>
-                                &#8377;<%= Number(listings.price || 0).toLocaleString("en-IN") %> / night
-                            </p>
+                                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"
+                                        style="height: 20rem" />
+
+                                    <% const isWishlisted=currentUser && currentUser.wishlist.some( id=> id.toString()
+                                        === listing._id.toString()
+                                        );
+                                        %>
+
+                                        <form action="/listings/<%= listing._id %>/wishlist" method="POST"
+                                            class="wishlist-form">
+                                            <button type="submit" class="wishlist-btn">
+                                                <i
+                                                    class="<%= isWishlisted ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+                                            </button>
+                                        </form>
+
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                <b>
+                                                    <%= listing.title %>
+                                                </b><br>
+                                                ₹<%= Number(listing.price || 0).toLocaleString("en-IN") %> / night
+                                            </p>
+                                        </div>
+
+                                </div>
+
+                            </a>
+
+                            <!-- ❤️ Wishlist button -->
+                            <form action="/listings/<%= listing._id %>/wishlist" method="POST" class="wishlist-form">
+                                <button type="submit" class="wishlist-btn">
+                                    <i class="<%= isWishlisted ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+                                </button>
+                            </form>
+
                         </div>
 
-                    </div>
+                        <% } %>
 
-                </a>
+                </div>
 
-            <% } %>
-
-        </div>
-
-    <% } %>
-
-</body>
+                <% } %>
+    </body>

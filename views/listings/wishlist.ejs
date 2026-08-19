@@ -1,0 +1,88 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">
+        ❤️ My Wishlist
+    </h2>
+
+    <% if (allListings.length === 0) { %>
+
+        <div class="alert alert-info">
+            Your wishlist is empty.
+        </div>
+
+        <a href="/listings" class="btn btn-dark">
+            Explore Listings
+        </a>
+
+    <% } else { %>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+
+            <% allListings.forEach((listing) => { %>
+
+                <div class="col">
+
+                    <div class="card h-100">
+
+                        <img
+                            src="<%= listing.image.url %>"
+                            class="card-img-top"
+                            style="height: 250px; object-fit: cover;"
+                        >
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                <%= listing.title %>
+                            </h5>
+
+                            <p class="card-text">
+                                <%= listing.description %>
+                            </p>
+
+                            <p>
+                                <b>
+                                    ₹ <%= listing.price.toLocaleString("en-IN") %>
+                                </b>
+                            </p>
+
+                            <p>
+                                <%= listing.location %>,
+                                <%= listing.country %>
+                            </p>
+
+                            <a
+                                href="/listings/<%= listing._id %>"
+                                class="btn btn-dark"
+                            >
+                                View Listing
+                            </a>
+
+                            <!-- Remove button -->
+            <form 
+                action="/listings/<%= listing._id %>/wishlist"
+                method="POST"
+            >
+                <button 
+                    type="submit"
+                    class="btn btn-outline-danger"
+                >
+                    ❤️ Remove from Wishlist
+                </button>
+            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>

@@ -63,6 +63,14 @@ const validateListing = (req, res, next) => {  //func which convert it to middle
     }
 };
 
+const requireLogin = (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    next();
+};
+
 // Signup page
 app.get("/signup", (req, res) => {
     res.render("users/signup.ejs");
@@ -164,13 +172,52 @@ app.get("/listings", wrapAsync(async (req, res) => {
         allListings = await Listing.find({});
     }
 
-    res.render("listings/index.ejs", { allListings });
+    res.render("listings/index.ejs", {
+    allListings,
+    currentUser: res.locals.currentUser
+    });
 }));
 
 //new route
 app.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs");
 });
+
+// Add / Remove Wishlist
+app.post("/listings/:id/wishlist", requireLogin, wrapAsync(async (req, res) => {
+
+    const user = await User.findById(req.session.userId);
+    const listingId = req.params.id;
+
+    const alreadyAdded = user.wishlist.some(
+        (id) => id.toString() === listingId
+    );
+
+    if (alreadyAdded) {
+        // Remove from wishlist
+        user.wishlist = user.wishlist.filter(
+            (id) => id.toString() !== listingId
+        );
+    } else {
+        // Add to wishlist
+        user.wishlist.push(listingId);
+    }
+
+    await user.save();
+
+    res.redirect("/wishlist");
+}));
+
+// Wishlist page
+app.get("/wishlist", requireLogin, wrapAsync(async (req, res) => {
+
+    const user = await User.findById(req.session.userId)
+        .populate("wishlist");
+
+    res.render("listings/wishlist.ejs", {
+        allListings: user.wishlist
+    });
+}));
 
 //show route
 app.get("/listings/:id", wrapAsync(async (req, res) => {
