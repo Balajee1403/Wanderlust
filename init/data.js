@@ -347,6 +347,344 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
   },
+    // ==================== GOA ====================
+
+  {
+    title: "Beach Villa in Goa",
+    description:
+      "Relax beside the Arabian Sea in this beautiful beach villa with stunning sunset views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2500,
+    location: "Goa",
+    country: "India",
+  },
+
+  {
+    title: "Luxury Resort in North Goa",
+    description:
+      "Enjoy a luxurious stay near the famous beaches of North Goa with a private swimming pool.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3200,
+    location: "Goa",
+    country: "India",
+  },
+
+  {
+    title: "Cozy Beach Cottage",
+    description:
+      "A peaceful cottage close to the beach, perfect for a relaxing Goa vacation.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1800,
+    location: "Goa",
+    country: "India",
+  },
+
+  {
+    title: "Goa Palm Retreat",
+    description:
+      "Stay surrounded by palm trees and nature in this comfortable tropical retreat.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2200,
+    location: "Goa",
+    country: "India",
+  },
+
+  {
+    title: "Sea View Apartment in Goa",
+    description:
+      "Modern apartment with beautiful sea views and easy access to Goa's popular attractions.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2800,
+    location: "Goa",
+    country: "India",
+  },
+
+
+  // ==================== MANALI ====================
+
+  {
+    title: "Mountain View Cottage",
+    description:
+      "Wake up to breathtaking Himalayan views from this cozy cottage in Manali.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2200,
+    location: "Manali",
+    country: "India",
+  },
+
+  {
+    title: "Snowy Mountain Chalet",
+    description:
+      "Experience the beauty of snow-covered mountains from this comfortable chalet.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3000,
+    location: "Manali",
+    country: "India",
+  },
+
+  {
+    title: "Manali Riverside Retreat",
+    description:
+      "A peaceful riverside stay surrounded by pine forests and beautiful Himalayan scenery.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2000,
+    location: "Manali",
+    country: "India",
+  },
+
+  {
+    title: "Luxury Himalayan Resort",
+    description:
+      "Enjoy a premium mountain vacation with comfortable rooms and spectacular valley views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3500,
+    location: "Manali",
+    country: "India",
+  },
+
+  {
+    title: "Cozy Wooden Cabin in Manali",
+    description:
+      "Stay in a charming wooden cabin surrounded by peaceful forests and mountains.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2500,
+    location: "Manali",
+    country: "India",
+  },
+
+
+  // ==================== MALDIVES ====================
+
+  {
+    title: "Overwater Villa in Maldives",
+    description:
+      "Stay above crystal-clear turquoise waters in this luxurious overwater villa.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 8000,
+    location: "Maldives",
+    country: "Maldives",
+  },
+
+  {
+    title: "Private Island Resort",
+    description:
+      "Enjoy a peaceful tropical escape on a private island surrounded by the Indian Ocean.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 10000,
+    location: "Maldives",
+    country: "Maldives",
+  },
+
+  {
+    title: "Maldives Beach Bungalow",
+    description:
+      "Relax in a beautiful beach bungalow with direct access to white sandy beaches.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 6500,
+    location: "Maldives",
+    country: "Maldives",
+  },
+
+  {
+    title: "Luxury Lagoon Villa",
+    description:
+      "Experience luxury living with stunning lagoon views and a private outdoor deck.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 9000,
+    location: "Maldives",
+    country: "Maldives",
+  },
+
+  {
+    title: "Tropical Paradise Resort",
+    description:
+      "A luxurious tropical resort perfect for couples, families and unforgettable holidays.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 7500,
+    location: "Maldives",
+    country: "Maldives",
+  },
+
+
+  // ==================== SHIMLA ====================
+
+  {
+    title: "Hill View Cottage in Shimla",
+    description:
+      "Enjoy peaceful mountain views from this cozy cottage in the hills of Shimla.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1800,
+    location: "Shimla",
+    country: "India",
+  },
+
+  {
+    title: "Colonial House in Shimla",
+    description:
+      "Experience the charm of Shimla in this beautiful colonial-style mountain house.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2300,
+    location: "Shimla",
+    country: "India",
+  },
+
+  {
+    title: "Snow Valley Resort",
+    description:
+      "A comfortable resort surrounded by snowy mountains and peaceful Himalayan scenery.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2800,
+    location: "Shimla",
+    country: "India",
+  },
+
+  {
+    title: "Pine Forest Retreat",
+    description:
+      "Relax in a peaceful retreat surrounded by tall pine trees and beautiful mountain views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2000,
+    location: "Shimla",
+    country: "India",
+  },
+
+  {
+    title: "Luxury Mountain Stay",
+    description:
+      "Enjoy a luxurious stay with panoramic views of the Himalayan mountains.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3200,
+    location: "Shimla",
+    country: "India",
+  },
+
+
+  // ==================== LEH LADAKH ====================
+
+  {
+    title: "Mountain Camp in Leh",
+    description:
+      "Experience the raw beauty of Ladakh while staying surrounded by dramatic mountains.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1800,
+    location: "Leh Ladakh",
+    country: "India",
+  },
+
+  {
+    title: "Ladakh Valley Retreat",
+    description:
+      "Stay in a peaceful retreat with spectacular views of the Ladakh valley.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2200,
+    location: "Leh Ladakh",
+    country: "India",
+  },
+
+  {
+    title: "Luxury Stay in Leh",
+    description:
+      "A comfortable luxury stay offering modern facilities and breathtaking mountain views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3000,
+    location: "Leh Ladakh",
+    country: "India",
+  },
+
+  {
+    title: "Ladakh Homestay",
+    description:
+      "Experience local Ladakhi culture while staying in this welcoming mountain homestay.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1500,
+    location: "Leh Ladakh",
+    country: "India",
+  },
+
+  {
+    title: "Himalayan Adventure Camp",
+    description:
+      "Perfect for adventure lovers looking to explore the mountains, valleys and lakes of Ladakh.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2500,
+    location: "Leh Ladakh",
+    country: "India",
+  },
 ];
 
 module.exports = { data: sampleListings };

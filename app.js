@@ -49,9 +49,15 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-    res.send("Hi, i am root");
-});
+app.get("/", wrapAsync(async (req, res) => {
+
+    const featuredListings = await Listing.find({}).limit(4);
+
+    res.render("home.ejs", {
+        featuredListings
+    });
+
+}));
 
 const validateListing = (req, res, next) => {  //func which convert it to middleware
     let { error } = listingSchema.validate(req.body);

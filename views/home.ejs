@@ -1,0 +1,552 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="home-hero">
+
+    <div class="hero-overlay">
+        <div class="container hero-content">
+
+            <h1>Find your perfect stay</h1>
+
+            <p>
+                Discover amazing places to stay around the world
+            </p>
+
+            <!-- Search -->
+            <form action="/listings" method="GET" class="hero-search">
+
+                <div class="search-box">
+                    <label>Where to?</label>
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search destinations"
+                    >
+                </div>
+
+                <div class="search-box">
+                    <label>Check in</label>
+                    <input type="date" name="checkin">
+                </div>
+
+                <div class="search-box">
+                    <label>Check out</label>
+                    <input type="date" name="checkout">
+                </div>
+
+                <div class="search-box">
+                    <label>Guests</label>
+                    <input
+                        type="number"
+                        name="guests"
+                        placeholder="Add guests"
+                        min="1"
+                    >
+                </div>
+
+                <button type="submit" class="hero-search-btn">
+                    🔍 Search
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR DESTINATIONS ================= -->
+
+<section class="home-section">
+
+    <div class="section-heading">
+
+        <h2>Popular Destinations</h2>
+
+        <a href="/listings">
+            View all →
+        </a>
+
+    </div>
+
+    <div class="destination-grid">
+
+        <a href="/listings?search=Goa" class="destination-card">
+            <img
+                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"
+                alt="Goa"
+            >
+            <div class="destination-overlay">
+                <h3>Goa</h3>
+                <p>Beach paradise</p>
+            </div>
+        </a>
+
+
+        <a href="/listings?search=Manali" class="destination-card">
+            <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa"
+                alt="Manali"
+            >
+            <div class="destination-overlay">
+                <h3>Manali</h3>
+                <p>Mountain escape</p>
+            </div>
+        </a>
+
+
+        <a href="/listings?search=Maldives" class="destination-card">
+            <img
+                src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8"
+                alt="Maldives"
+            >
+            <div class="destination-overlay">
+                <h3>Maldives</h3>
+                <p>Tropical getaway</p>
+            </div>
+        </a>
+
+
+        <a href="/listings?search=Shimla" class="destination-card">
+            <img
+                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7"
+                alt="Shimla"
+            >
+            <div class="destination-overlay">
+                <h3>Shimla</h3>
+                <p>Peaceful hills</p>
+            </div>
+        </a>
+
+
+        <a href="/listings?search=Ladakh" class="destination-card">
+            <img
+                src="https://images.unsplash.com/photo-1533130061792-64b345e4a833"
+                alt="Ladakh"
+            >
+            <div class="destination-overlay">
+                <h3>Leh Ladakh</h3>
+                <p>Adventure awaits</p>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURED STAYS ================= -->
+
+<section class="home-section">
+
+    <div class="section-heading">
+
+        <h2>Featured Stays</h2>
+
+        <a href="/listings">
+            View all listings →
+        </a>
+
+    </div>
+
+
+    <div class="featured-grid">
+
+        <% if (featuredListings && featuredListings.length > 0) { %>
+
+            <% for (let listing of featuredListings) { %>
+
+                <div class="featured-card">
+
+                    <a href="/listings/<%= listing._id %>">
+
+                        <div class="featured-image-container">
+
+                            <img
+                                src="<%= listing.image.url %>"
+                                alt="<%= listing.title %>"
+                                class="featured-image"
+                            >
+
+                            <span class="heart-icon">
+                                ♡
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <div class="featured-info">
+
+                        <h3>
+                            <%= listing.title %>
+                        </h3>
+
+                        <p class="location">
+                            📍 <%= listing.location %>,
+                            <%= listing.country %>
+                        </p>
+
+                        <div class="featured-bottom">
+
+                            <span>
+                                ₹<%= Number(listing.price || 0)
+                                    .toLocaleString("en-IN") %>
+                                / night
+                            </span>
+
+                            <span class="rating">
+                                ⭐ 4.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        <% } else { %>
+
+            <p>No featured listings available.</p>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY WANDERLUST ================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="section-title-center">
+
+            <h2>Why Choose Wanderlust?</h2>
+
+            <p>
+                Everything you need for a comfortable and memorable stay.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🏠
+                </div>
+
+                <h3>Quality Stays</h3>
+
+                <p>
+                    Discover carefully selected properties
+                    in amazing destinations.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🔒
+                </div>
+
+                <h3>Safe & Secure</h3>
+
+                <p>
+                    Your account and personal information
+                    are protected.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💰
+                </div>
+
+                <h3>Best Prices</h3>
+
+                <p>
+                    Find comfortable stays at affordable
+                    prices.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ⭐
+                </div>
+
+                <h3>Trusted Experience</h3>
+
+                <p>
+                    Explore highly rated places and
+                    create unforgettable memories.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPLORE CATEGORIES ================= -->
+
+<section class="home-section">
+
+    <div class="section-heading">
+
+        <h2>Explore by Category</h2>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <a href="/listings?search=beach" class="category-card">
+            <span>🏖️</span>
+            <h3>Beach Stays</h3>
+            <p>Relax by the sea</p>
+        </a>
+
+
+        <a href="/listings?search=mountain" class="category-card">
+            <span>🏔️</span>
+            <h3>Mountain Homes</h3>
+            <p>Escape to the hills</p>
+        </a>
+
+
+        <a href="/listings?search=villa" class="category-card">
+            <span>🏡</span>
+            <h3>Luxury Villas</h3>
+            <p>Stay in comfort</p>
+        </a>
+
+
+        <a href="/listings?search=city" class="category-card">
+            <span>🏙️</span>
+            <h3>City Apartments</h3>
+            <p>Experience city life</p>
+        </a>
+
+
+        <a href="/listings?search=countryside" class="category-card">
+            <span>🌳</span>
+            <h3>Countryside</h3>
+            <p>Peace and nature</p>
+        </a>
+
+
+        <a href="/listings?search=luxury" class="category-card">
+            <span>🏨</span>
+            <h3>Luxury Stays</h3>
+            <p>Premium experiences</p>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="review-section">
+
+    <div class="section-title-center">
+
+        <h2>What Our Guests Say</h2>
+
+        <p>
+            Experiences from people who explored with Wanderlust.
+        </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Wanderlust made finding our vacation stay
+                incredibly easy. The place was beautiful!"
+            </p>
+
+            <h4>— Rahul Sharma</h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "The listing was exactly as shown.
+                I had an amazing experience."
+            </p>
+
+            <h4>— Priya Singh</h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Very easy to find beautiful places.
+                I would definitely use Wanderlust again."
+            </p>
+
+            <h4>— Arjun Verma</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BECOME A HOST ================= -->
+
+<section class="host-section">
+
+    <div class="host-content">
+
+        <div>
+
+            <h2>Have a place to share?</h2>
+
+            <p>
+                Turn your property into an opportunity
+                and share it with travelers.
+            </p>
+
+            <a href="/listings/new" class="host-btn">
+                Become a Host
+            </a>
+
+        </div>
+
+        <div class="host-icon">
+            🏡
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+
+<section class="final-cta">
+
+    <h2>Ready for your next adventure?</h2>
+
+    <p>
+        Discover amazing places and create unforgettable memories.
+    </p>
+
+    <a href="/listings" class="cta-btn">
+        Explore Listings
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h2>Wanderlust</h2>
+
+            <p>
+                Discover amazing places to stay
+                around the world.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Explore</h4>
+
+            <a href="/">Home</a>
+            <a href="/listings">All Listings</a>
+            <a href="/wishlist">Wishlist</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Company</h4>
+
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Careers</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Support</h4>
+
+            <a href="#">Help Center</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div>
+            🌐 &nbsp; 📷 &nbsp; 💼
+        </div>
+
+        <p>
+            © 2026 Wanderlust Private Limited
+        </p>
+
+    </div>
+
+</footer>
